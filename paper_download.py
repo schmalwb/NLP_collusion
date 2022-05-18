@@ -57,8 +57,8 @@ for y in range(2002, 2022, 1):
     print(len(df2))
     fulldata2 = fulldata2.append(df2) 
 fulldata2.to_excel('other_journals_full.xlsx') 
-fulldata2.to_pickle('jrnl_data_general')  # where to save it, usually as a .pkl
-#df.loc[:,"description"]
+fulldata2.to_pickle('jrnl_data_general') 
+
 
 
 # Additional Journal: RIO and JLE
@@ -72,8 +72,7 @@ for y in range(2002, 2022, 1):
     # ATTENTION: WRONG RIO added (removed later on)
     
 fulldata2.to_excel('other_journals_full.xlsx') 
-add_data.to_pickle('jrnl_data_general')  # where to save it, usually as a .pkl
-#df.loc[:,"description"]
+add_data.to_pickle('jrnl_data_general') 
 
 
 for i in range(len(fulldata2)):
@@ -193,9 +192,9 @@ jebo_data.to_pickle('jebo_data_add')
 # Extract abstract information (easy use in R)
 #add_papers = pickle.load('jrnl_data_add')
 
-file_to_read = open("jrnl_data_add", "rb") # Knoke papers
+file_to_read = open("jrnl_data_add", "rb") 
 add_papers = pickle.load(file_to_read)
-file_to_read = open("oldjrnls_add", "rb") # Knoke papers
+file_to_read = open("oldjrnls_add", "rb")
 add_old = pickle.load(file_to_read)
 
 file_to_read.close()
@@ -262,7 +261,7 @@ ap_coll = ap_coll.drop_duplicates(subset=['eid'])
 ap_coll.drop(ap_coll[ap_coll['publicationName'] == 'Review of International Organizations'].index, inplace=True)
  #477 observations (+19%)
  
-np.savetxt(r'C:\\Users\\DICE\\sciebo\\research\\IAD Collusion\\quant\\abstracts.txt', ap_coll['description'], fmt='%1000s', encoding='utf-8')
+np.savetxt(r'', ap_coll['description'], fmt='%1000s', encoding='utf-8')
 ap_coll.to_excel(r'jrnl_list.xlsx', sheet_name='sheet1', index = False)
 
 ###
@@ -271,20 +270,13 @@ ap_coll.to_excel(r'jrnl_list.xlsx', sheet_name='sheet1', index = False)
 
 ap_coll.sort_values(by=['coverDate', 'publicationName'])
 pd.set_option('display.max_colwidth', 40)
-#print(ap_coll.to_latex(buf=None, longtable = True, columns= ['title', 'author_names', 'publicationName'], index=False, header=True))
 longtable = ap_coll.to_latex(buf=None, longtable = True, columns= ['title', 'author_names', 'publicationName'], index=False, header=True)
 list1 = ap_coll.publicationName.value_counts()
 print(list1)
 
 
-
-
 data90_2.to_excel('other_journals_full.xlsx') 
-data90_2.to_pickle('jrnl_data_general90')  # where to save it, usually as a .pkl
-#df.loc[:,"description"]
-
-
-
+data90_2.to_pickle('jrnl_data_general90')  
 
 
 ### END OF SCRIPT ###
