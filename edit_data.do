@@ -3,7 +3,7 @@
 clear all
 set more off
 
-cd "C:\Users\DICE\sciebo\research\IAD Collusion\quant"
+cd "" //insert custom path here
 
 import delimited "all_papers.csv", clear
 
